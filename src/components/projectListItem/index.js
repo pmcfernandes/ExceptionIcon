@@ -15,7 +15,10 @@ function ProjectListItem({ project }) {
         <tr onClick={() => handleProjectItemClick()}>
             <td><h4>{project.name}</h4></td>
             <td>{project.lastError}<br /><span className="date">{timeago.format(project.lastOccurred)}</span></td>
-            <td className="text-center"><span className="red">{project.totalActives} of {project.total} active(s)</span></td>
+            <td className="text-center">
+                <div style={{ marginBottom: 5 }}>{project.avg} per day</div>
+                <span className="red">{project.totalActives} of {project.total} active(s)</span>
+            </td>
         </tr>
     );
 }

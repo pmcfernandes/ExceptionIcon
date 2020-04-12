@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import * as timeago from 'timeago.js';
 
 import api from '../../services/api'
 import './styles.css';
 
-function IssueListItem({ group }) {
+function IssueListItem({ item, handleToUpdate }) {
     const history = useHistory();
     const { id } = useParams();
-    const [item, setItem] = useState(group);
 
     function handleIssueItemClick() {
         history.push('/projects/' + id + '/issues/' + item.lastUUID);
@@ -17,12 +16,7 @@ function IssueListItem({ group }) {
     function handleActiveClick(e) {
         api.patch('/issues/markResolved?uuid=' + item.lastUUID).then(function (response) {
             if (response.data.__ajs && response.data.success) {
-                api.get('/issues?projectUUID=' + id).then(function (response) {
-                    if (response.data.__ajs && response.data.success) {
-                        let item1 = response.data.result.map(item => item.lastUUID === group.lastUUID);
-                        setItem(item1);
-                    }
-                });
+                handleToUpdate();
             }
         });
     }
@@ -30,14 +24,7 @@ function IssueListItem({ group }) {
     function handleResolvedClick(e) {
         api.patch('/issues/markActive?uuid=' + item.lastUUID).then(function (response) {
             if (response.data.__ajs && response.data.success) {
-                api.get('/issues?projectUUID=' + id).then(function (response) {
-                    if (response.data.__ajs && response.data.success) {
-                        response.data.result.forEach(function (item) {
-                            let item1 = response.data.result.map(item => item.lastUUID === group.lastUUID);
-                            setItem(item1);
-                        })
-                    }
-                });
+                handleToUpdate();
             }
         });
     }

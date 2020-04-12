@@ -3,7 +3,7 @@ import auth from './auth';
 
 const api = axios.create({
     baseURL: 'http://localhost:44345/api',
-    timeout: 1000,
+    timeout: 3000,
     responseType: 'json',
     headers: {
         'Authorization': auth.getAuhtorizationHeader('Bearer')

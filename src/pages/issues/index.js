@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
 import MainPage from '../../components/mainPage';
@@ -15,12 +15,7 @@ function Issues() {
 
     function handleIncludeResolvedClick() {
         setIncludeResolved(includeResolved === false ? true : false);
-
-        api.get('/issues?projectUUID=' + id + '&includeResolved=' + includeResolved.toString()).then(function(response) {
-            if (response.data.__ajs && response.data.success) {
-                setData(response.data.result);
-            }
-        });
+        handleToUpdate();
     }
 
     function handleMarkAllResolved() {
@@ -37,6 +32,14 @@ function Issues() {
         }
     }
 
+    function handleToUpdate() {
+        api.get('/issues?projectUUID=' + id + '&includeResolved=' + includeResolved.toString()).then(function(response) {
+            if (response.data.__ajs && response.data.success) {
+                setData(response.data.result);
+            }
+        });
+    }
+
     function handleSettingsClick() {
         history.push('/projects/' + id + '/settings');
     }
@@ -49,7 +52,7 @@ function Issues() {
         api.get('/projects?uuid=' + id).then(function (response) {
             if (response.data.__ajs && response.data.success) {
                 setProject(response.data.result);
-
+                
                 api.get('/issues?projectUUID=' + id).then(function(response) {
                     if (response.data.__ajs && response.data.success) {
                         setData(response.data.result);
@@ -89,9 +92,9 @@ function Issues() {
                         </thead>
                         <tbody>
                         {
-                            data.map((group) => {
+                            data.map((item) => {
                                 return (
-                                    <IssueListItem key={group.lastUUID} group={group} />
+                                    <IssueListItem key={item.lastUUID} item={item} handleToUpdate={handleToUpdate.bind(this)} />
                                 )
                             })
                         }

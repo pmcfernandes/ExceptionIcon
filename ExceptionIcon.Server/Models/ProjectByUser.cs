@@ -25,5 +25,8 @@ namespace ExceptionIcon.Server.Models
 
         [JsonProperty("total")]
         public int Total { get; set; }
+
+        [JsonProperty("avg")]
+        public int Avg { get; set; }
     }
 }

@@ -16,11 +16,19 @@ function Header() {
     }
 
     function getUsername() {
-        return sessionStorage.getItem('username');
+        return auth.getAuhtorization().username;
+    }
+
+    function hideNavBar(classNames) {
+        if (!auth.isAuthorized()) {
+            return 'collapse ' + classNames;
+        } else {
+            return classNames;
+        }
     }
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className={hideNavBar("navbar navbar-expand-lg navbar-dark bg-dark")}>
             <div className="container">
                 <Link className="navbar-brand" to="/projects">ExceptionIcon</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import MainPage from '../../components/mainPage';
 import { useHistory } from 'react-router-dom';
+
 import auth from '../../services/auth';
 import api from '../../services/api';
+import './styles.css';
 
 function Login() {
     const history = useHistory();
@@ -16,11 +18,12 @@ function Login() {
         }).then(function(response) {
             if (response.data.__ajs && response.data.success) {
                 let result = response.data.result;
-                console.log(result);
 
-                sessionStorage.setItem('username', result.username);
-                console.log(result.username);
-                auth.setAuhtorization(result.uuid);
+                auth.setAuhtorization({
+                    username: result.username,
+                    token: result.uuid
+                });
+
                 history.push('/projects');
             } else {
                 alert(response.data.error.message);
@@ -40,7 +43,7 @@ function Login() {
 
     return (
         <MainPage>
-            <div className="col-lg-6 offset-lg-3">
+            <div id="loginPanel" className="col-lg-6 offset-lg-3">
                 <div className="card">
                     <div className="card-body">
                         <h5 className="card-title">Login</h5>

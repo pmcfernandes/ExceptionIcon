@@ -9,19 +9,31 @@ class auth {
 
     getAuhtorizationHeader(schema) {
         if (this.isAuthorized()) {
-            return schema + ' '  + localStorage.getItem('authorization');
+            return schema + ' '  + this.getAuhtorization().token;
         } else {
             return '';
         }
     };
 
-    setAuhtorization(id) {
-        localStorage.setItem('authorization', id);
+    setAuhtorization(data) {
+        localStorage.setItem('authorization', JSON.stringify(data));
     };
+
+    getAuhtorization() {
+        if (this.isAuthorized()) {
+            return JSON.parse(localStorage.getItem('authorization'));
+        } else {
+            return {
+                username: '',
+                token: ''
+            }
+        }
+    }
 
     logout(callBack) {
         localStorage.removeItem('authorization');
         if (typeof callBack !== 'undefined') {
+
             callBack();
         }
     }
