@@ -5,11 +5,9 @@ using ExceptionIcon.Server.Models;
 using System;
 using System.Web.Http;
 using System.Web.Http.Controllers;
-using System.Web.Http.Cors;
 
 namespace ExceptionIcon.Server.Controllers
 {
-    [EnableCors("*", "*", "*")]
     public class ProfileController : ApiBaseController
     {
         private User user;

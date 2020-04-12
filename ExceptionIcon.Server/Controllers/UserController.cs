@@ -3,11 +3,9 @@ using CSoft.Web.Mvc.Controllers;
 using ExceptionIcon.Server.Models;
 using System;
 using System.Web.Http;
-using System.Web.Http.Cors;
 
 namespace ExceptionIcon.Server.Controllers
 {
-    [EnableCors("*", "*", "*")]
     public class UserController : ApiBaseController
     {
         [HttpPost]

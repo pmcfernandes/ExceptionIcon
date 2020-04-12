@@ -6,11 +6,9 @@ using System;
 using System.Text;
 using System.Web.Http;
 using System.Web.Http.Controllers;
-using System.Web.Http.Cors;
 
 namespace ExceptionIcon.Server.Controllers
 {
-    [EnableCors("*", "*", "*")]
     public class ProjectController : ApiBaseController
     {
         private User user;

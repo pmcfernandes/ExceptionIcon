@@ -92,7 +92,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ProjectDAO.cs" />
     <Compile Include="Helpers\User.cs" />
+    <Compile Include="Models\HttpContext.cs" />
     <Compile Include="Models\Issue.cs" />
     <Compile Include="Models\IssuesByproject.cs" />
     <Compile Include="Models\Login.cs" />
@@ -135,6 +137,10 @@
     <ProjectReference Include="..\..\FrameworkCS\Web\CSoft.Web.Mvc\CSoft.Web.Mvc.csproj">
       <Project>{c06de3e3-f8b1-4eb2-a98e-48d33b55937f}</Project>
       <Name>CSoft.Web.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExceptionIcon.Sdk\ExceptionIcon.Sdk.csproj">
+      <Project>{ad7b5352-8453-46af-9c06-f665aa4fa306}</Project>
+      <Name>ExceptionIcon.Sdk</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSoft.Web.Mvc", "..\Framewo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSoft.Web.Mvc.DataSets", "..\FrameworkCS\Web\CSoft.Web.Mvc.DataSets\CSoft.Web.Mvc.DataSets.csproj", "{1DD6C924-0397-488D-968F-21D555B43425}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionIcon.Sdk", "ExceptionIcon.Sdk\ExceptionIcon.Sdk.csproj", "{AD7B5352-8453-46AF-9C06-F665AA4FA306}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationSample", "WebApplicationSample\WebApplicationSample.csproj", "{A6D3C38F-C440-40F7-A180-97A08EC99757}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +57,14 @@ Global
 		{1DD6C924-0397-488D-968F-21D555B43425}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DD6C924-0397-488D-968F-21D555B43425}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DD6C924-0397-488D-968F-21D555B43425}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD7B5352-8453-46AF-9C06-F665AA4FA306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD7B5352-8453-46AF-9C06-F665AA4FA306}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD7B5352-8453-46AF-9C06-F665AA4FA306}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD7B5352-8453-46AF-9C06-F665AA4FA306}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6D3C38F-C440-40F7-A180-97A08EC99757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6D3C38F-C440-40F7-A180-97A08EC99757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6D3C38F-C440-40F7-A180-97A08EC99757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6D3C38F-C440-40F7-A180-97A08EC99757}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
