@@ -1,0 +1,11 @@
+code {
+  width: 100% !important;
+  margin-bottom: 15px;
+  color: #007bff;
+}
+code > span {
+  color: #00b8d8;
+}
+code + hr {
+  margin-top: 25px;
+}

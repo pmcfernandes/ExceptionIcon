@@ -1,0 +1,22 @@
+.red {
+    color: lighten(red, 0.5);
+    font-size: 14px;
+}
+
+table {
+    & tbody {
+      cursor: pointer;
+
+      & > tr > td {
+          & p {
+              font-size: 16px;
+              margin-bottom: 0px;
+
+              & + span {
+                font-size: 14px;
+              }
+          }
+      }
+    }
+}
+  

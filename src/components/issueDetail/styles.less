@@ -1,0 +1,28 @@
+code {
+    background: lighten(#d3d3d3, 10%);
+    width: percentage(1);
+    padding: 15px;
+}
+
+.accordion {
+    & .card {
+        border-radius: 0px;
+        border: none;
+        margin-bottom: 10px;
+
+        & .card-header {
+            background: lighten(grey, 30%);
+            padding-top: 0px;
+            padding-bottom: 5px;
+
+            & h2 {
+                & > .btn-link {
+                    font-weight: 600;
+                    font-size: 26px;
+                    color: black;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

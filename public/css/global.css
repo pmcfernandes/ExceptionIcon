@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'Assistant';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Assistant Light'), local('Assistant-Light'), url(https://fonts.gstatic.com/s/assistant/v4/2sDZZGJYnIjSi6H75xk7w0ecAw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Assistant';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Assistant SemiBold'), local('Assistant-SemiBold'), url(https://fonts.gstatic.com/s/assistant/v4/2sDZZGJYnIjSi6H75xk7t0GcAw.ttf) format('truetype');
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+span,
+button,
+label,
+input,
+ul > li,
+td {
+  font-family: 'Assistant', sans-serif;
+}
+strong,
+th {
+  font-weight: 600;
+}
+input {
+  font-size: 14px !important;
+}
+.btn {
+  font-size: 14px !important;
+}
+.cursor {
+  cursor: pointer;
+}

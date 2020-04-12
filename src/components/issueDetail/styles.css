@@ -1,0 +1,21 @@
+code {
+  background: #ececec;
+  width: 100%;
+  padding: 15px;
+}
+.accordion .card {
+  border-radius: 0px;
+  border: none;
+  margin-bottom: 10px;
+}
+.accordion .card .card-header {
+  background: #cdcdcd;
+  padding-top: 0px;
+  padding-bottom: 5px;
+}
+.accordion .card .card-header h2 > .btn-link {
+  font-weight: 600;
+  font-size: 26px;
+  color: black;
+  text-decoration: none;
+}

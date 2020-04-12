@@ -1,0 +1,14 @@
+.red {
+  color: #ff0303;
+  font-size: 14px;
+}
+table tbody {
+  cursor: pointer;
+}
+table tbody > tr > td p {
+  font-size: 16px;
+  margin-bottom: 0px;
+}
+table tbody > tr > td p + span {
+  font-size: 14px;
+}

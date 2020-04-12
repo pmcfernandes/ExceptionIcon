@@ -21,3 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+bin/
+obj/
+.vs/
+.nuget/
+packages/
+
+*.csproj.user
+package-lock.json

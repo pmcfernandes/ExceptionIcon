@@ -1,0 +1,10 @@
+.date {
+  font-size: 12px;
+}
+.red {
+  color: #ff0303;
+  font-size: 14px;
+}
+table tbody {
+  cursor: pointer;
+}
