@@ -31,3 +31,6 @@ packages/
 
 *.csproj.user
 package-lock.json
+WebApplicationSample/
+
+ExceptionIcon.Server/Properties/PublishProfiles/
