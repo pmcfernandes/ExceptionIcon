@@ -6,6 +6,8 @@ import ProjectListItem from '../../components/projectListItem';
 import auth from '../../services/auth';
 import api from '../../services/api';
 
+import NoItems from '../../assets/notfound.png';
+
 function Projects() {
     const history = useHistory();
     const [data, setData] = useState([]);
@@ -36,7 +38,7 @@ function Projects() {
                 <div className="col-lg-12">
                     {  
                         (data.length === 0 ? 
-                            "No projects founded." : 
+                            <img src={NoItems} alt="No projectts fouded." /> : 
                         <div>
                             <table className="table">
                                 <thead>

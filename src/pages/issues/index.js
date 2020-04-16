@@ -6,6 +6,8 @@ import IssueListItem from '../../components/issueListItem';
 import auth from '../../services/auth';
 import api from '../../services/api';
 
+import NoItems from '../../assets/notfound.png';
+
 function Issues() {
     const history  = useHistory();
     const { id } = useParams();
@@ -92,11 +94,14 @@ function Issues() {
                         </thead>
                         <tbody>
                         {
-                            data.map((item) => {
-                                return (
-                                    <IssueListItem key={item.lastUUID} item={item} handleToUpdate={handleToUpdate.bind(this)} />
-                                )
-                            })
+                            (data.length === 0 ? 
+                                <img src={NoItems} alt="No projectts fouded." /> : 
+                                data.map((item) => {
+                                    return (
+                                        <IssueListItem key={item.lastUUID} item={item} handleToUpdate={handleToUpdate.bind(this)} />
+                                    )
+                                })
+                            )
                         }
                         </tbody>
                     </table>
