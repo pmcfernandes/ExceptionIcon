@@ -38,7 +38,7 @@ function Projects() {
                 <div className="col-lg-12">
                     {  
                         (data.length === 0 ? 
-                            <img src={NoItems} alt="No projectts fouded." /> : 
+                            <img src={NoItems} alt="No projectts fouded." className="img-fluid" /> : 
                         <div>
                             <table className="table">
                                 <thead>

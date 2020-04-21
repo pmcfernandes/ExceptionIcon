@@ -59,7 +59,7 @@ function IssueDetail({ issue }) {
                 {
                   Object.keys(issue.environmentVariables || {}).map(key => {
                     return (
-                      <div><strong>{key}</strong>: {issue.environmentVariables[key]} </div>
+                      <div key={key}><strong>{key}</strong>: {issue.environmentVariables[key]} </div>
                     )
                   })
                 }
@@ -109,7 +109,7 @@ function IssueDetail({ issue }) {
                         {
                           Object.keys(issue.httpContext.query || {}).map(key => {
                             return (
-                              <div><strong>{key}</strong>: {issue.httpContext.query[key]} </div>
+                              <div key={key}><strong>{key}</strong>: {issue.httpContext.query[key]} </div>
                             )
                           })
                         }
@@ -123,7 +123,7 @@ function IssueDetail({ issue }) {
                         {
                           Object.keys(issue.httpContext.cookies || {}).map(key => {
                             return (
-                              <div><strong>{key}</strong>: {issue.httpContext.cookies[key]} </div>
+                              <div key={key}><strong>{key}</strong>: {issue.httpContext.cookies[key]} </div>
                             )
                           })
                         }  
@@ -137,7 +137,7 @@ function IssueDetail({ issue }) {
                         {
                           Object.keys(issue.httpContext.headers || {}).map(key => {
                             return (
-                              <div><strong>{key}</strong>: {issue.httpContext.headers[key]} </div>
+                              <div key={key}><strong>{key}</strong>: {issue.httpContext.headers[key]} </div>
                             )
                           })
                         }  
@@ -151,7 +151,7 @@ function IssueDetail({ issue }) {
                         {
                           Object.keys(issue.httpContext.session || {}).map(key => {
                             return (
-                              <div><strong>{key}</strong>: {issue.httpContext.session[key]} </div>
+                              <div key={key}><strong>{key}</strong>: {issue.httpContext.session[key]} </div>
                             )
                           })
                         }  

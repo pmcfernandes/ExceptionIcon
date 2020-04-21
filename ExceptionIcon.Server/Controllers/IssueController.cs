@@ -14,6 +14,9 @@ using System.Web.Http.Cors;
 
 namespace ExceptionIcon.Server.Controllers
 {
+#if DEBUG
+    [EnableCors("*", "*", "*")]
+#endif
     public class IssueController : ApiBaseController
     {
         private User user;
@@ -69,6 +72,7 @@ namespace ExceptionIcon.Server.Controllers
                             using (IDataReader reader = output.DataSet.Tables[0].CreateDataReader())
                             {
                                 issue = CSoft.Data.DataMapper.Map<Issue>(reader);
+
                             }
 
                             foreach (DataRow row in output.DataSet.Tables[1].Rows)
@@ -92,16 +96,70 @@ namespace ExceptionIcon.Server.Controllers
                                 context.Method = row.Field<string>("Method");
                                 context.QueryString = row.Field<string>("QueryString");
 
-                                if (!row.IsNull("Query")) context.Query = JsonConvert.DeserializeObject<Dictionary<string, string>>(row.Field<string>("Query"));
-                                if (!row.IsNull("Cookies")) context.Cookies = JsonConvert.DeserializeObject<Dictionary<string, string>>(row.Field<string>("Cookies"));
-                                if (!row.IsNull("Headers")) context.Headers = JsonConvert.DeserializeObject<Dictionary<string, string>>(row.Field<string>("Headers"));
-                                if (!row.IsNull("Session")) context.Session = JsonConvert.DeserializeObject<Dictionary<string, string>>(row.Field<string>("Session"));
+                                if (row.IsNull("Query") == false)
+                                {
+                                    context.Query = JsonConvert.DeserializeObject<Dictionary<string, string>>(row.Field<string>("Query"));
+                                }
+
+                                if (row.IsNull("Cookies") == false)
+                                {
+                                    context.Cookies = JsonConvert.DeserializeObject<Dictionary<string, string>>(row.Field<string>("Cookies"));
+                                }
+
+                                if (row.IsNull("Headers") == false)
+                                {
+                                    context.Headers = JsonConvert.DeserializeObject<Dictionary<string, string>>(row.Field<string>("Headers"));
+                                }
+
+                                if (row.IsNull("Session") == false)
+                                {
+                                    context.Session = JsonConvert.DeserializeObject<Dictionary<string, string>>(row.Field<string>("Session"));
+                                }
 
                                 issue.HttpContext = context;
                             }
                         }
                     });
 
+                    //var result = StackTraceParser.Parse(issue.StackTrace,
+                    //    (idx, len, txt) => new
+                    //    {
+                    //        Index = idx,
+                    //        Length = len,
+                    //        Text = txt,
+                    //    },
+                    //    (type, method) => new
+                    //    {
+                    //        Type = type,
+                    //        Method = method,
+                    //    },
+                    //    (type, name) => new
+                    //    {
+                    //        Type = type,
+                    //        Name = name,
+                    //    },
+                    //    (pl, ps) => new
+                    //    {
+                    //        List = pl,
+                    //        Parameters = ps,
+                    //    },
+                    //    (file, line) => new
+                    //    {
+                    //        File = file,
+                    //        Line = line,
+                    //    },
+                    //    (f, tm, p, fl) => new
+                    //    {
+                    //        Frame = f,
+                    //        tm.Type,
+                    //        tm.Method,
+                    //        ParameterList = p.List,
+                    //        p.Parameters,
+                    //        fl.File,
+                    //        fl.Line,
+                    //    });
+
+                    //issue.ParsedStackTrace = result;
                     return Ajs(issue);
                 }
                 catch (Exception ex)

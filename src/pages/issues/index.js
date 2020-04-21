@@ -9,7 +9,7 @@ import api from '../../services/api';
 import NoItems from '../../assets/notfound.png';
 
 function Issues() {
-    const history  = useHistory();
+    const history = useHistory();
     const { id } = useParams();
     const [project, setProject] = useState({});
     const [data, setData] = useState([]);
@@ -22,9 +22,9 @@ function Issues() {
 
     function handleMarkAllResolved() {
         if (window.confirm('This feature will mark all issues in repository as resolved. Want to continue?')) {
-            api.patch('/issues/markAllResolved?projectUUID=' + id).then(function(response) {
+            api.patch('/issues/markAllResolved?projectUUID=' + id).then(function (response) {
                 if (response.data.__ajs && response.data.success) {
-                    api.get('/issues?projectUUID=' + id + '&includeResolved=' + includeResolved.toString()).then(function(response) {
+                    api.get('/issues?projectUUID=' + id + '&includeResolved=' + includeResolved.toString()).then(function (response) {
                         if (response.data.__ajs && response.data.success) {
                             setData(response.data.result);
                         }
@@ -35,7 +35,7 @@ function Issues() {
     }
 
     function handleToUpdate() {
-        api.get('/issues?projectUUID=' + id + '&includeResolved=' + includeResolved.toString()).then(function(response) {
+        api.get('/issues?projectUUID=' + id + '&includeResolved=' + includeResolved.toString()).then(function (response) {
             if (response.data.__ajs && response.data.success) {
                 setData(response.data.result);
             }
@@ -54,8 +54,8 @@ function Issues() {
         api.get('/projects?uuid=' + id).then(function (response) {
             if (response.data.__ajs && response.data.success) {
                 setProject(response.data.result);
-                
-                api.get('/issues?projectUUID=' + id).then(function(response) {
+
+                api.get('/issues?projectUUID=' + id).then(function (response) {
                     if (response.data.__ajs && response.data.success) {
                         setData(response.data.result);
                     }
@@ -77,34 +77,36 @@ function Issues() {
             </div>
             <div className="row mb-4">
                 <div className="col-lg-12 text-right">
-                    { (data.length === 0 ? '' : <button type="button" className="btn btn-sm btn-secondary mr-2 " onClick={() => handleMarkAllResolved()}>Mark All Resolved</button>)}
-                    <button type="button" className="btn btn-sm btn-secondary" onClick={() => handleIncludeResolvedClick()}>{ includeResolved === true ? 'Include Resolved' : 'Exclude Resolved' }</button>
+                    {(data.length === 0 ? '' : <button type="button" className="btn btn-sm btn-secondary mr-2 " onClick={() => handleMarkAllResolved()}>Mark All Resolved</button>)}
+                    <button type="button" className="btn btn-sm btn-secondary" onClick={() => handleIncludeResolvedClick()}>{includeResolved === true ? 'Include Resolved' : 'Exclude Resolved'}</button>
                 </div>
             </div>
             <div className="row">
                 <div className="col-lg-12">
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>Count</th>
-                                <th>Last Occurred</th>
-                                <th>Exception</th>
-                                <th className="text-center">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {
-                            (data.length === 0 ? 
-                                <img src={NoItems} alt="No projectts fouded." /> : 
-                                data.map((item) => {
-                                    return (
-                                        <IssueListItem key={item.lastUUID} item={item} handleToUpdate={handleToUpdate.bind(this)} />
-                                    )
-                                })
-                            )
-                        }
-                        </tbody>
-                    </table>
+                    {
+                        (data.length === 0 ?
+                            <img src={NoItems} alt="No projectts fouded." className="img-fluid" /> :
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th>Count</th>
+                                        <th>Last Occurred</th>
+                                        <th>Exception</th>
+                                        <th className="text-center">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        data.map((item) => {
+                                            return (
+                                                <IssueListItem key={item.lastUUID} item={item} handleToUpdate={handleToUpdate.bind(this)} />
+                                            )
+                                        })
+                                    }
+                                </tbody>
+                            </table>
+                        )
+                    }
                 </div>
             </div>
         </MainPage>

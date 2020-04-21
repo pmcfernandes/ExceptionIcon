@@ -85,6 +85,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Packages\StackTraceParser\StackTraceParser.cs" />
     <Compile Include="Controllers\IssueController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />

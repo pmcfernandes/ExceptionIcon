@@ -58,7 +58,7 @@ function handleResolvedClick(e) {
           <h3>{data.exceptionType}</h3>
           <p className="date">{timeago.format(data.dateOccurred)} at {(data.dateOccurred || '').substring(0, 16).replace('T', ' ')}</p>
         </div>
-        <div className="col-lg-3 text-right">
+        <div className="col-lg-3 text-right mb-4">
           { (
             data.isResolved === false ? 
               <button type="button" className="btn btn-danger" onClick={(e) =>handleActiveClick(e) }>Active</button> :

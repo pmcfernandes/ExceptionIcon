@@ -27,6 +27,9 @@ namespace ExceptionIcon.Server.Models
         [JsonProperty("stackTrace")]
         public string StackTrace { get; set; }
 
+        //[JsonProperty("parsedStackTrace")]
+        //public dynamic ParsedStackTrace { get; set; }
+
         [JsonProperty("type")]
         public string Type { get; set; }
 
