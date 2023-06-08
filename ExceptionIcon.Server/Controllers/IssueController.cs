@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Controllers;
@@ -65,28 +66,27 @@ namespace ExceptionIcon.Server.Controllers
                 {
                     Issue issue = null;
 
-                    proc.OpenDataSetAsync(output =>
+                    proc.OpenDataSetAsync((ds, output) =>
                     {
-                        if (!output.NoRecords())
+                        if (ds.Tables[0].Rows.Count > 0)
                         {
-                            using (IDataReader reader = output.DataSet.Tables[0].CreateDataReader())
+                            using (IDataReader reader = ds.Tables[0].CreateDataReader())
                             {
                                 issue = CSoft.Data.DataMapper.Map<Issue>(reader);
-
                             }
 
-                            foreach (DataRow row in output.DataSet.Tables[1].Rows)
+                            foreach (DataRow row in ds.Tables[1].Rows)
                             {
                                 issue.EnvironmentVariables.Add(row.Field<string>("Name"), row.Field<string>("Value"));
                             }
 
-                            if (output.DataSet.Tables[2].Rows.Count == 0)
+                            if (ds.Tables[2].Rows.Count == 0)
                             {
                                 issue.HttpContext = null;
                             }
                             else
                             {
-                                DataRow row = output.DataSet.Tables[2].Rows[0];
+                                DataRow row = ds.Tables[2].Rows[0];
 
                                 HttpContext context = new HttpContext();
                                 context.Host = row.Field<string>("Host");
@@ -228,6 +228,7 @@ namespace ExceptionIcon.Server.Controllers
                                 }
                                 catch (Exception ex)
                                 {
+                                    Debug.WriteLine(ex.Message);
                                 }
 
                                 foreach (var item in data.Environment.EnvironmentVariables)
@@ -243,6 +244,7 @@ namespace ExceptionIcon.Server.Controllers
                                     }
                                     catch (Exception ex)
                                     {
+                                        Debug.WriteLine(ex.Message);
                                     }
                                 }
                             }

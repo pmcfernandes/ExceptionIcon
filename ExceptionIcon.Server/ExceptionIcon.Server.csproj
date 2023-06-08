@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ExceptionIcon.Server</RootNamespace>
     <AssemblyName>ExceptionIcon.Server</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44345</IISExpressSSLPort>
@@ -23,6 +23,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,10 +44,48 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CSoft.Configuration, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSoft.Core.Web.1.1.0\lib\net45\CSoft.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="CSoft.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSoft.Core.Web.1.1.0\lib\net45\CSoft.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CSoft.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSoft.Core.Web.1.1.0\lib\net45\CSoft.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="CSoft.Forms, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSoft.Core.Web.1.1.0\lib\net45\CSoft.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="CSoft.Parsers, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSoft.Core.Web.1.1.0\lib\net45\CSoft.Parsers.dll</HintPath>
+    </Reference>
+    <Reference Include="CSoft.Web.Controls, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSoft.Core.Web.1.1.0\lib\net45\CSoft.Web.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="CSoft.Web.Mvc, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSoft.Core.Web.1.1.0\lib\net45\CSoft.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="CSoft.Web.Mvc.DataSets, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSoft.Core.Web.1.1.0\lib\net45\CSoft.Web.Mvc.DataSets.dll</HintPath>
+    </Reference>
+    <Reference Include="Huanent.JsonContent, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Huanent.JsonContent.1.2.0\lib\netstandard2.0\Huanent.JsonContent.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Acrobat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Interop.Acrobat.1.0.1\lib\net\Interop.Acrobat.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="NLog, Version=2.1.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.2.1.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -60,9 +99,10 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
@@ -72,13 +112,28 @@
     <Reference Include="System.Web.Http.WebHost, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.6\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -115,30 +170,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FrameworkCS\Core\CSoft.Configuration\CSoft.Configuration.csproj">
-      <Project>{7a6da96d-330c-4fe9-b196-02b6fe8063ca}</Project>
-      <Name>CSoft.Configuration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\FrameworkCS\Core\CSoft.Core\CSoft.Core.csproj">
-      <Project>{abdf8f1b-5716-4175-815a-37876a3bbe1a}</Project>
-      <Name>CSoft.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\FrameworkCS\Data\CSoft.Data\CSoft.Data.csproj">
-      <Project>{1c6ef16f-eb7e-4430-9140-7403ac0f9212}</Project>
-      <Name>CSoft.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\FrameworkCS\Web\CSoft.Web.Controls\CSoft.Web.Controls.csproj">
-      <Project>{7f2809e2-d3c3-4e79-8bb3-58faf12ccbd2}</Project>
-      <Name>CSoft.Web.Controls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\FrameworkCS\Web\CSoft.Web.Mvc.DataSets\CSoft.Web.Mvc.DataSets.csproj">
-      <Project>{1dd6c924-0397-488d-968f-21d555b43425}</Project>
-      <Name>CSoft.Web.Mvc.DataSets</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\FrameworkCS\Web\CSoft.Web.Mvc\CSoft.Web.Mvc.csproj">
-      <Project>{c06de3e3-f8b1-4eb2-a98e-48d33b55937f}</Project>
-      <Name>CSoft.Web.Mvc</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ExceptionIcon.Sdk\ExceptionIcon.Sdk.csproj">
       <Project>{ad7b5352-8453-46af-9c06-f665aa4fa306}</Project>
       <Name>ExceptionIcon.Sdk</Name>
@@ -170,12 +201,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
