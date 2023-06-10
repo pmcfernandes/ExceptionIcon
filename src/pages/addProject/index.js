@@ -56,7 +56,7 @@ function AddProject() {
                         <div className="form-group">
                             <label htmlFor="name">Name</label>
                             <input type="email" className="form-control" id="name" placeholder="Name" aria-describedby="nameHelp" onChange={(e) => setProjectName(e.target.value)}  required />
-                            <small id="nameHelp" className="form-text text-muted">Give a name for an project</small>
+                            <small id="nameHelp" className="form-text text-muted">Give a name for a project</small>
                         </div>
                         <div className="form-group text-right">
                             <button type="submit" className="btn btn-secondary mr-2" onClick={() => handleCreateClick()}>Create Project</button>

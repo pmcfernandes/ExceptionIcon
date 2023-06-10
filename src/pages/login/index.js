@@ -49,19 +49,19 @@ function Login() {
                         <h5 className="card-title">Login</h5>
                         <form>
                             <div className="form-group row">
-                                <label htmlFor="email" className="col-sm-3 col-form-label">Email</label>
-                                <div className="col-sm-9">
+                                <label htmlFor="email" className="col-sm-4 col-form-label">Email or Username</label>
+                                <div className="col-sm-8">
                                     <input type="text" className="form-control" id="email" required placeholder="email@example.com" onChange={(e) => setUsername(e.target.value)} />
                                 </div>
                             </div>
                             <div className="form-group row">
-                                <label htmlFor="password" className="col-sm-3 col-form-label">Password</label>
-                                <div className="col-sm-9">
+                                <label htmlFor="password" className="col-sm-4 col-form-label">Password</label>
+                                <div className="col-sm-8">
                                     <input type="password" className="form-control" id="password" required onChange={(e) => setPassword(e.target.value)} />
                                 </div>
                             </div>
                             <div className="form-group row">
-                                <div className="col-sm-9 offset-sm-3">
+                                <div className="col-sm-8 offset-sm-4">
                                     <button type="button" className="btn btn-primary" onClick={(e) => handleLoginClick(e)}>Login</button>
                                 </div>
                             </div>
