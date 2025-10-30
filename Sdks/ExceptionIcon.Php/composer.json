@@ -1,0 +1,14 @@
+{
+  "name": "exceptionicon/sdk-php",
+  "description": "ExceptionIcon PHP SDK",
+  "type": "library",
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "guzzlehttp/guzzle": "^7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ExceptionIcon\\": "src/"
+    }
+  }
+}

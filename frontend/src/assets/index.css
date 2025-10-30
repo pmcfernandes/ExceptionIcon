@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'Assistant';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/assistant/v24/2sDPZGJYnIjSi6H75xkZZE1I0yCmYzzQtrhnEGE.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Assistant';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/assistant/v24/2sDPZGJYnIjSi6H75xkZZE1I0yCmYzzQtjhgEGE.ttf) format('truetype');
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+span,
+button,
+label,
+input,
+ul > li,
+td {
+  font-family: 'Assistant', sans-serif;
+}
+body {
+  background-color: #FBFBFB;
+}
+strong,
+th {
+  font-weight: 600;
+}
+input {
+  font-size: 14px !important;
+}
+.btn {
+  font-size: 14px !important;
+}
+.cursor {
+  cursor: pointer;
+}

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ExceptionIcon Web SDK Example</title>
+  </head>
+  <body>
+    <h1>ExceptionIcon Web SDK Example</h1>
+    <script type="module">
+      import { ExceptionIconOptions, ExceptionIconClient } from '../exceptionicon.js';
+
+      const opts = new ExceptionIconOptions({ url: 'http://localhost:44345', apiKey: 'your-api-key' });
+      const client = new ExceptionIconClient(opts);
+
+      async function run() {
+        try {
+          const payload = {
+            message: 'Browser error example',
+            type: 'Error',
+            stackTrace: 'stack trace',
+            timeOccurred: new Date().toISOString()
+          };
+
+          const res = await client.captureException(payload);
+          console.log('Result:', res);
+        } catch (err) {
+          console.error('Error sending exception:', err);
+        }
+      }
+
+      run();
+    </script>
+  </body>
+</html>
